@@ -8,11 +8,10 @@
 
 <div class="container">
     <div class="col-md-8 bg-light manage-wrapper">
-        <h3 >Admin Management Book Page</h1>
-        <p>Manage your books, tidy them up!</p>
+        <h3 >Admin Management Book Categories Page</h1>
+        <p>--</p>
         <hr>
-        <a href="{{ url('admin/create') }}" class="btn btn-dark btn-sm mb-2">Add Books</a>
-        <a href="{{ url('bookCategory/assignCategory') }}" class="btn btn-secondary btn-sm mb-2" style="margin-left:10px">Assign Category</a>
+        <a href="{{ url('bookCategory/assignCategory') }}" class="btn btn-dark btn-sm mb-2">Add Book Categories</a>
 
         @if(session('status_sukses'))
           <div class="alert alert-success" role="alert">
@@ -23,30 +22,24 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Year</th>
-                <th>Synopsis</th>
-                <th>Image</th>
-                <th>Publisher-ID</th>
+                <th>Book ID</th>
+                <th>Book Category ID</th>
+
               </tr>
             </thead>
             <tbody>
               {{-- @php $num = 1 @endphp --}}
-              @foreach($books as $book)
+              @foreach($bookCats as $bookCat)
                 <tr>
-                  <td>{{$book->id}}</td>
-                  <td>{{$book->title}}</td>
-                  <td>{{$book->author}}</td>
-                  <td>{{$book->year}}</td>
-                  <td>{{$book->synopsis}}</td>
-                  <td>{{asset($book->image)}}</td>
-                  <td>{{$book->publisher_id}}</td>
-                  <td>
-                    {{-- EDIT --}}
+                  <td>{{$bookCat->id}}</td>
+                  <td>{{$bookCat->book_id}}</td>
+                  <td>{{$bookCat->category_id}}</td>
+
+                  {{-- <td>
+
                     <a href="{{ url('admin/edit/' . $book->id) }}" class="text-primary">Edit</a>
 
-                    {{-- DELETE --}}
+
                     <a href="#" class="text-danger" onclick="event.preventDefault();document.getElementById('delete-form-{{ $book->id }}').submit();">
                       Delete
 
@@ -57,11 +50,36 @@
                       </form>
 
                     </a>
-                  </td>
+                  </td> --}}
                 </tr>
               @endforeach
             </tbody>
           </table>
+
+          {{-- TABEL NAMA ---------------- --}}
+          {{-- <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Book Name</th>
+                <th>Category Name</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              @foreach($books as $book)
+                <tr>
+                <td>{{$loop->iteration}}</td>
+                <td>{{$book->title}}</td>
+
+
+
+
+                </tr>
+              @endforeach
+            </tbody>
+          </table> --}}
     </div>
 </div>
 @endsection

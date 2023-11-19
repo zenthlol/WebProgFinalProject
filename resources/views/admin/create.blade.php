@@ -43,13 +43,39 @@
                 @error('image') <small class="text-danger">{{ $message }}</small> @enderror
               </div>
 
-              <div class="mb-3">
+              {{-- <div class="mb-3">
                 <label class="form-label">Publisher ID</label>
                 <input type="number" class="form-control" placeholder="Input Publisher ID" name="publisher_id" value="{{ old('publisher_id') }}">
+            </div> --}}
+
+            <div class="mb-3">
+                <label class="form-label">Publisher</label>
+                <select class="form-select" aria-label="Default select example" placeholder="Input Publisher ID" name="publisher_id" value="{{ old('image') }}">
+                    <option selected>Select Publisher</option>
+                    @foreach ($publishers as $publisher)
+                        <option value="{{ $publisher->id }}">{{ $publisher->name }}</option>
+                    @endforeach
+                </select>
+                @error('publisher_id') <small class="text-danger">{{ $message }}</small> @enderror
+              </div>
+
+
+            {{-- <div class="mb-3">
+                <label class="form-label">Book ID</label>
+                <input type="integer" class="form-control @error('book_id') is-invalid @enderror" placeholder="Input book ID" name="book_id" value="{{ old('book_id') }}">
+                @error('book_id') <small class="text-danger">{{ $message }}</small> @enderror
             </div>
+
+            <div class="mb-3">
+                <label class="form-label">Category ID</label>
+                <input type="integer" class="form-control @error('category_id') is-invalid @enderror" placeholder="Input category ID" name="category_id" value="{{ old('category_id') }}">
+                @error('category_id') <small class="text-danger">{{ $message }}</small> @enderror
+            </div> --}}
 
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
+
+
 
     </div>
 </div>

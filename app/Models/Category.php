@@ -14,7 +14,7 @@ class Category extends Model
     ];
 
     public function categoryToBook(){
-        return $this->hasMany(Book::class,'book_categories','book_id', 'category_id');
-        //nama table, nama id, nama tujuan pny id
+        return $this->belongsToMany(Book::class,'book_categories','category_id', 'book_id');
+        //nama table pviot, nama id start di pivot, nama id finish di pivot
     }
 }

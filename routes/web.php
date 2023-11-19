@@ -46,6 +46,18 @@ Route::get('/admin/create', [BookController::class, 'adminCreate'])->name('admin
 Route::post('/admin/create', [BookController::class, 'store'])->name('store');
 
 
+
+
+Route::get('/bookCategory/index', [BookController::class, 'bookCategoryIndex'])->name('index');
+
+// ini buat halaman admin ASSIGN-CATEGORY
+Route::get('/bookCategory/assignCategory', [BookController::class, 'bookCategoryCreate'])->name('bookCategoryCreate');
+
+Route::post('/bookCategory/assignCategory', [BookController::class, 'bookCategoryStore'])->name('bookCategoryStore');
+
+
+
+
 // halaman admin UPDATE
 Route::get('/admin/edit/{id}', [BookController::class, 'edit'])->name('edit');
 

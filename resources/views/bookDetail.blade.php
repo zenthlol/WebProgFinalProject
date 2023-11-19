@@ -15,7 +15,6 @@
           <h5>{{ $book->bookToPublisher->name }}</h5>
           <h5>Year : {{ $book->year }}</h5>
           <h5>Synopsis : {{ $book->synopsis }}</h5>
-          <a href="#" class="btn btn-primary">Details</a>
         </div>
       </div>
 </div>

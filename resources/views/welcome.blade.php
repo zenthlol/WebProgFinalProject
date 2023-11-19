@@ -27,7 +27,7 @@
         @endforeach
     </div>
 
-    <button type="button" class="btn btn-primary" style="margin-left: 10px"><a href="{{ url('admin/index') }}" style="color:white">Become Admin</a></button>
+    <button type="button" class="btn btn-primary" style="margin-left: 10px; margin-bottom:20px"><a href="{{ url('admin/index') }}" style="color:white">Become Admin</a></button>
 
 
 
