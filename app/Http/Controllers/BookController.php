@@ -54,7 +54,7 @@ class BookController extends Controller
     }
 
     //function untuk halaman admin
-    public function adminView(){
+    public function adminCreate(){
         return view('admin/create');
     }
 
@@ -120,6 +120,13 @@ class BookController extends Controller
         return redirect('admin/index')->with('status_sukses', 'Book has been Edited!');
 
 
+    }
+
+    // function DELETE
+    public function destroy($id){
+        $book = Book::findOrFail($id);
+        $book->delete();
+        return redirect('/admin/index')->with('status_sukses', 'Book has been Deleted!');
     }
 }
 

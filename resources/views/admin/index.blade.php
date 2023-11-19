@@ -42,12 +42,14 @@
                   <td>{{asset($book->image)}}</td>
                   <td>{{$book->publisher_id}}</td>
                   <td>
+                    {{-- EDIT --}}
                     <a href="{{ url('admin/edit/' . $book->id) }}" class="text-primary">Edit</a>
 
+                    {{-- DELETE --}}
                     <a href="#" class="text-danger" onclick="event.preventDefault();document.getElementById('delete-form-{{ $book->id }}').submit();">
                       Delete
 
-                      <form id="delete-form-{{ $book->id }}" action="{{ url('books/' . $book->id) }}"
+                      <form id="delete-form-{{ $book->id }}" action="{{ url('admin/destroy/' . $book->id) }}"
                         method="POST" style="display: none;">
                         @csrf
                         @method('DELETE')
