@@ -22,6 +22,10 @@ class BookController extends Controller
 
     }   // di compact, string dari dtabase dibuat jadi dlm btk array
 
+    public function becomeAdmin(){
+        return view('admin/index');
+    }
+
     public function bookById($ids){ // function buat return id ke route, tampilin halaman details berdasarkan id buku
         $book = Book::find($ids);
         $categories = Category::all();
@@ -48,4 +52,75 @@ class BookController extends Controller
     public function contact(){
         return view('contact');
     }
+
+    //function untuk halaman admin
+    public function adminView(){
+        return view('admin/create');
+    }
+
+    public function index (){
+        $books = Book::All();
+        return view('admin/index', compact('books'));
+    }
+
+    //function untuk CREATE BOOK (store book ke database)
+    public function store(Request $request){
+        $request->validate([
+            'title'=>'required|string|min:5|max:100',
+            'author'=>'required|string|min:5|max:100',
+            'year'=>'required|integer|min:1990|max:2023',
+            'synopsis'=>'required|string|min:5|max:200',
+            'image'=>'required|string|min:5|max:100',
+            'publisher_id' => 'required|exists:publishers,id'
+        ]);
+
+        Book::create([
+            'title'=>$request->title,
+            'author'=>$request->author,
+            'year'=>$request->year,
+            'synopsis'=>$request->synopsis,
+            'image'=>$request->image,
+            'publisher_id' => $request->publisher_id
+
+            // 'publisher_id' => $this->faker->numberBetween(1,5)
+        ]);
+
+        return redirect('admin/index')->with('status_sukses', 'Book has been successfully added!');
+
+    }
+
+    //function untuk UPDATE/EDIT BOOK
+    //ini ketika klik dati hlmn index, mau cari buku yg mana yg bakal di update, trs di alihin ke halaman edit, dan passing id dan data buku ke halaman tsb
+    public function edit($id){
+        $book = Book::findOrFail($id);
+        return view('admin/edit', compact('book'));
+    }
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'title'=>'required|string|min:5|max:100',
+            'author'=>'required|string|min:5|max:100',
+            'year'=>'required|integer|min:1990|max:2023',
+            'synopsis'=>'required|string|min:5|max:200',
+            'image'=>'required|string|min:5|max:100',
+            'publisher_id' => 'required|exists:publishers,id'
+        ]);
+
+        $book=Book::findOrFail($id);
+        $book->update([
+            'title' => $request -> title,
+            'author' => $request -> author,
+            'year' => $request -> year,
+            'synopsis' => $request -> synopsis,
+            'image' => $request -> image,
+            'publisher_id' => $request -> publisher_id,
+        ]);
+
+
+        return redirect('admin/index')->with('status_sukses', 'Book has been Edited!');
+
+
+    }
 }
+
+

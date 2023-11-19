@@ -22,6 +22,8 @@ use App\Http\Controllers\BookController;
 
 Route::get('/', [BookController::class, 'welcome'])->name('welcome');
 
+// Route::get('/', [BookController::class, 'becomeAdmin'])->name('becomeAdmin');
+
 Route::get('/book/{idyangdidapat}', [BookController::class, 'bookById'])->name('bookById');//buat halaman details book
 
 Route::get('/category/{id}', [BookController::class, 'categoryById'])->name('categoryById');
@@ -36,3 +38,15 @@ Route::get('/contact', [BookController::class, 'contact'])->name('contact');
 //disini httpmethod bisa get,post,put,delete,etc
 
 
+
+Route::get('/admin/index', [BookController::class, 'index'])->name('index');
+// ini buat halaman admin CREATE
+Route::get('/admin/create', [BookController::class, 'adminView'])->name('adminView');
+
+Route::post('/admin/create', [BookController::class, 'store'])->name('store');
+
+
+// halaman admin UPDATE
+Route::get('/admin/edit/{id}', [BookController::class, 'edit'])->name('edit');
+
+Route::put('/admin/edit/{id}',[BookController::class, 'update'])->name('update');
