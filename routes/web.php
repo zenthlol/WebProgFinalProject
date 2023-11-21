@@ -20,7 +20,8 @@ use App\Http\Controllers\BookController;
 // });
 
 
-Route::get('/', [BookController::class, 'welcome'])->name('welcome');
+Route::get('/welcome', [BookController::class, 'welcome'])->name('welcome');
+Route::redirect('/', '/welcome');
 
 Route::get('/book/{idyangdidapat}', [BookController::class, 'bookById'])->name('bookById');//buat halaman details book
 
@@ -34,5 +35,4 @@ Route::get('/contact', [BookController::class, 'contact'])->name('contact');
 // tyang ->name(...) itu buat alias, ntar gampang manggil route ini di file php viewnya
 
 //disini httpmethod bisa get,post,put,delete,etc
-
 
