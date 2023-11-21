@@ -14,7 +14,10 @@ class Book extends Model
         'author',
         'year',
         'synopsis',
-        'image'
+        'image',
+        'publisher_id'
+
+
     ];
 
     public function bookToPublisher(){
