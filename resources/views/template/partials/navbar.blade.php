@@ -39,16 +39,38 @@
 
             </ul>
               {{-- SEARCH--}}
-                <form class="d-flex" action="/welcome">
-                    <input class="form-control me-2" name ="search" type="search" placeholder="Search" value="{{request('search')}}">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
+            <form class="d-flex" action="/welcome">
+                <input class="form-control me-2" name ="search" type="search" placeholder="Search" value="{{request('search')}}">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
 
               <ul class="navbar-nav ms-auto">
+              @auth
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Welcome back, {{auth()->user()->name}}
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/cart"><i class="bi bi-cart"></i> My Cart</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <form action="/logout" method="POST">
+                            @csrf
+                            <button type="submit" class="dropdown-item">
+                                <i class="bi bi-box-arrow-in-left"></i>Logout
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+              </li>
+              @else
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}"><i class="bi bi-box-arrow-in-right"></i> Login</a>
-                  </li>
-              </ul>
+                </li>
+              @endauth
+            </ul>
+
+
           </div>
         </div>
       </nav>

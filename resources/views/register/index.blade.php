@@ -23,7 +23,7 @@
                         is-invalid
                     @enderror" name="email" id="email" placeholder="email@example.com" required value="{{old('email')}}">
                     <label for="email">Email address</label>
-                    @error('email')
+                      @error('email')
                         <div class="invalid-feedback">
                             {{$message}}
                         </div>
@@ -34,7 +34,7 @@
                         is-invalid
                     @enderror" name="password" id="password" placeholder="Password" required>
                     <label for="password">Password</label>
-                    @error('password')
+                      @error('password')
                         <div class="invalid-feedback">
                             {{$message}}
                         </div>

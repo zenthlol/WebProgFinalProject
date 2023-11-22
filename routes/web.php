@@ -69,9 +69,13 @@ Route::put('/admin/edit/{id}',[BookController::class, 'update'])->name('update')
 Route::delete('/admin/destroy/{id}', [BookController::class,'destroy'])->name('destroy');
 
 // login
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // register
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
-Route::post('/register', [RegisterController::class, 'store'])->name('authenticate');
+Route::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('store');
+
+//Kalo Mau buat Cart
+// Route::get('/cart', [CartController::class, 'index'])->middleware('auth')->name('Cart');
