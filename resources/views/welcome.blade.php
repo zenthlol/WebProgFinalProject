@@ -115,7 +115,9 @@
         @endforeach
     </div>
 
+    @auth
     <button type="button" class="btn btn-primary" style="margin-left: 10px; margin-bottom:20px"><a href="{{ url('admin/index') }}" style="color:white">Become Admin</a></button>
+    @endauth
 
 
     <div class="d-flex justify-content-center bg-primary">

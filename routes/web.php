@@ -40,20 +40,22 @@ Route::get('/contact', [BookController::class, 'contact'])->name('contact');
 //disini httpmethod bisa get,post,put,delete,etc
 
 
-Route::get('/admin/index', [BookController::class, 'index'])->name('index');
+
+//ADMIN
+Route::get('/admin/index', [BookController::class, 'index'])->middleware('auth')->name('index');
 
 // ini buat halaman admin CREATE
-Route::get('/admin/create', [BookController::class, 'adminCreate'])->name('adminCreate');
+Route::get('/admin/create', [BookController::class, 'adminCreate'])->middleware('auth')->name('adminCreate');
 
 Route::post('/admin/create', [BookController::class, 'store'])->name('store');
 
 
 
 
-Route::get('/bookCategory/index', [BookController::class, 'bookCategoryIndex'])->name('index');
+Route::get('/bookCategory/index', [BookController::class, 'bookCategoryIndex'])->middleware('auth')->name('index');
 
 // ini buat halaman admin ASSIGN-CATEGORY
-Route::get('/bookCategory/assignCategory', [BookController::class, 'bookCategoryCreate'])->name('bookCategoryCreate');
+Route::get('/bookCategory/assignCategory', [BookController::class, 'bookCategoryCreate'])->middleware('auth')->name('bookCategoryCreate');
 
 Route::post('/bookCategory/assignCategory', [BookController::class, 'bookCategoryStore'])->name('bookCategoryStore');
 
@@ -61,7 +63,7 @@ Route::post('/bookCategory/assignCategory', [BookController::class, 'bookCategor
 
 
 // halaman admin UPDATE
-Route::get('/admin/edit/{id}', [BookController::class, 'edit'])->name('edit');
+Route::get('/admin/edit/{id}', [BookController::class, 'edit'])->middleware('auth')->name('edit');
 
 Route::put('/admin/edit/{id}',[BookController::class, 'update'])->name('update');
 
