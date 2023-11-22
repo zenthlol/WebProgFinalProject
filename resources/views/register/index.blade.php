@@ -10,7 +10,7 @@
                   <div class="form-floating">
                     <input type="text" class="form-control @error('name')
                         is-invalid
-                    @enderror" name="name" id="name" placeholder="name" required>
+                    @enderror" name="name" id="name" placeholder="name" required value="{{old('name')}}">
                     <label for="name">Name</label>
                       @error('name')
                         <div class="invalid-feedback">
@@ -21,7 +21,7 @@
                   <div class="form-floating">
                     <input type="email" class="form-control @error('email')
                         is-invalid
-                    @enderror" name="email" id="email" placeholder="email@example.com" required>
+                    @enderror" name="email" id="email" placeholder="email@example.com" required value="{{old('email')}}">
                     <label for="email">Email address</label>
                     @error('email')
                         <div class="invalid-feedback">
