@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center bg-warning">
-    <h1>Giant Book Supplier</h1>
+    <h1>Inkwell and Quill BookStore</h1>
 </div>
 <div class="d-flex justify-content-center">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -38,11 +38,7 @@
               </li>
 
             </ul>
-              {{-- SEARCH--}}
-            <form class="d-flex" action="/welcome">
-                <input class="form-control me-2" name ="search" type="search" placeholder="Search" value="{{request('search')}}">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+
 
               <ul class="navbar-nav ms-auto">
               @auth

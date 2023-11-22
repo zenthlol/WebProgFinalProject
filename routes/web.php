@@ -68,6 +68,7 @@ Route::put('/admin/edit/{id}',[BookController::class, 'update'])->name('update')
 // halaman admin DELETE
 Route::delete('/admin/destroy/{id}', [BookController::class,'destroy'])->name('destroy');
 
+// LOGIN + REGISTER
 // login
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
