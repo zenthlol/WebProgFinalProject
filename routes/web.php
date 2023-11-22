@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 // ini import2 kek java, kalo beda folder baru import
 
 /*
@@ -65,3 +67,11 @@ Route::put('/admin/edit/{id}',[BookController::class, 'update'])->name('update')
 
 // halaman admin DELETE
 Route::delete('/admin/destroy/{id}', [BookController::class,'destroy'])->name('destroy');
+
+// login
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'index'])->name('login');
+
+// register
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'store'])->name('authenticate');

@@ -89,14 +89,18 @@ class BookController extends Controller
     public function index (){
         $books = Book::All();
         $publisher = Publisher::all();
-        return view('admin/index', compact('books'), compact('publisher'));
+        $title = "Admin Page";
+        $active = "";
+        return view('admin/index', compact('books', 'title', 'active'), compact('publisher'));
     }
 
 
     //function untuk halaman admin
     public function adminCreate(){
         $publishers = Publisher::all();
-        return view('admin/create', compact('publishers'));
+        $title = "Admin Page";
+        $active = "";
+        return view('admin/create', compact('publishers', 'title', 'active'));
     }
 
     //function untuk CREATE BOOK (store book ke database)
@@ -144,14 +148,18 @@ class BookController extends Controller
         $bookCats = BookCategory::all();
         $books = Book::all();
         $categories = Category::all();
-        return view('bookCategory/index', compact('bookCats'), compact('books'), compact('categories'));
+        $title = "Admin Page";
+        $active = "";
+        return view('bookCategory/index', compact('bookCats'), compact('books'), compact('categories', 'title', 'active'));
     }
 
     //function untuk halaman bikin bookcat
     public function bookCategoryCreate(){
         $books = Book::all();
         $categories = Category::all();
-        return view('bookCategory/assignCategory', compact('books'), compact('categories'));
+        $title = "Admin Page";
+        $active = "";
+        return view('bookCategory/assignCategory', compact('books'), compact('categories', 'title', 'active'));
     }
 
     //function untuk ASSIGN CATEGORY
@@ -169,6 +177,7 @@ class BookController extends Controller
             'category_id'=>$request->category_id,
         ]);
 
+
         return redirect('bookCategory/index')->with('status_sukses', 'Book Category has been successfully added!');
     }
 
@@ -177,7 +186,9 @@ class BookController extends Controller
     //ini ketika klik dati hlmn index, mau cari buku yg mana yg bakal di update, trs di alihin ke halaman edit, dan passing id dan data buku ke halaman tsb
     public function edit($id){
         $book = Book::findOrFail($id);
-        return view('admin/edit', compact('book'));
+        $title = "Admin Page";
+        $active = "";
+        return view('admin/edit', compact('book', 'title', 'active'));
     }
 
     public function update(Request $request, $id){
