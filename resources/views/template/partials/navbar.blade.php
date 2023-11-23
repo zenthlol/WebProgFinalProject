@@ -32,15 +32,19 @@
                         <a class="dropdown-item" href="{{ route('categoryById', 2) }}">Action</a>
                         <a class="dropdown-item" href="{{ route('categoryById', 3) }}">Adventure</a>
                     </li>
-
-
                 </ul>
               </li>
 
-            </ul>
+            @if ($active === "Home")
+                {{-- SEARCH--}}
+                <form class="d-flex" action="/welcome">
+                    <input class="form-control me-2" name ="search" type="search" placeholder="Search for Book Name" value="{{request('search')}}">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            @endif
 
 
-              <ul class="navbar-nav ms-auto">
+            {{-- <ul class="navbar-nav ms-auto"> --}}
               @auth
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -64,7 +68,7 @@
                     <a class="nav-link" href="{{ route('login') }}"><i class="bi bi-box-arrow-in-right"></i> Login</a>
                 </li>
               @endauth
-            </ul>
+            {{-- </ul> --}}
 
 
           </div>
