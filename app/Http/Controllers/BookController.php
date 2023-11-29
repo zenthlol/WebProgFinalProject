@@ -105,28 +105,35 @@ class BookController extends Controller
 
     //function untuk CREATE BOOK (store book ke database)
     public function store(Request $request){
-        $request->validate([
+
+        $validatedData = $request->validate([
             //validasi BOOK
             'title'=>'required|string|min:5|max:100',
             'author'=>'required|string|min:5|max:100',
             'year'=>'required|integer|min:1990|max:2023',
             'synopsis'=>'required|string|min:5|max:200',
-            'image'=>'required|string|min:5|max:100',
+            'image'=>'image|file|max:5120',
+
             'publisher_id' => 'required|exists:publishers,id',
             // validasi CATEGORY
         ]);
 
-        // INSERT BOOKS
-        Book::create([
-            'title'=>$request->title,
-            'author'=>$request->author,
-            'year'=>$request->year,
-            'synopsis'=>$request->synopsis,
-            'image'=>$request->image,
-            'publisher_id' => $request->publisher_id
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('images\cover-images');
+        }
 
-            // 'publisher_id' => $this->faker->numberBetween(1,5)
-        ]);
+        // INSERT BOOKS
+        // Book::create([
+        //     'title'=>$request->title,
+        //     'author'=>$request->author,
+        //     'year'=>$request->year,
+        //     'synopsis'=>$request->synopsis,
+        //     'image'=>$request->image,
+        //     'publisher_id' => $request->publisher_id
+
+        //     // 'publisher_id' => $this->faker->numberBetween(1,5)
+        // ]);
+        Book::create($validatedData);
 
 
 
@@ -176,8 +183,6 @@ class BookController extends Controller
             'book_id'=>$request->book_id,
             'category_id'=>$request->category_id,
         ]);
-
-
         return redirect('bookCategory/index')->with('status_sukses', 'Book Category has been successfully added!');
     }
 

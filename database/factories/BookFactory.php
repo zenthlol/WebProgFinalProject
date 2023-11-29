@@ -23,7 +23,7 @@ class BookFactory extends Factory
             'year' => $this->faker->year(),
             'synopsis' => $this->faker->text(50),
             // 'image' => $this->faker->text(10)
-            'image' => 'asset/harry-potter.jpeg'
+            'image' => 'images/cover-images/harry-potter.jpeg'
         ];
     }
 }

@@ -21,7 +21,14 @@ class PublisherFactory extends Factory
             'address'=> $this->faker->text(10),
             'phone' => $this->faker->phoneNumber(),
             'email' => $this->faker->email(),
-            'image' => 'asset/naruto.jpg'
+            'image' => 'images/publisher-images/naruto.jpg'
         ];
+        // return [
+        //     'name'=> $this->faker->name(),
+        //     'address'=> $this->faker->text(10),
+        //     'phone' => $this->faker->phoneNumber(),
+        //     'email' => $this->faker->email(),
+        //     'image' => 'assets/naruto.jpg'
+        // ];
     }
 }

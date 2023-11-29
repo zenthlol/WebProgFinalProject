@@ -1,8 +1,8 @@
 <div class="d-flex justify-content-center bg-warning">
     <h1>Inkwell and Quill BookStore</h1>
 </div>
-<div class="d-flex justify-content-center">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+{{-- <div class="d-flex justify-content-center sticky-top"> --}}
+    <nav class="navbar navbar-expand-lg bg-body-tertiary d-flex justify-content-center sticky-top">
         <div class="container-fluid">
 
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,13 +51,15 @@
                     Welcome back, {{auth()->user()->name}}
                 </a>
                 <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/profile"><i class="bi bi-person"></i> Profile</a></li>
+                    <li><a class="dropdown-item" href="/password"><i class="bi bi-lock"></i> Change Password</a></li>
                     <li><a class="dropdown-item" href="/cart"><i class="bi bi-cart"></i> My Cart</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li>
                         <form action="/logout" method="POST">
                             @csrf
                             <button type="submit" class="dropdown-item">
-                                <i class="bi bi-box-arrow-in-left"></i>Logout
+                                <i class="bi bi-box-arrow-in-left"></i> Logout
                             </button>
                         </form>
                     </li>
@@ -75,4 +77,4 @@
         </div>
       </nav>
 
-</div>
+{{-- </div> --}}

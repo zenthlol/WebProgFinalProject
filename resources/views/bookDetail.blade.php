@@ -8,7 +8,7 @@
 @section('body')
 <div class="d-flex justify-content-center">
     <div class="card m-3" style="width: 30rem;">
-        <img src="{{ asset($book->image ) }}" class="card-img-top" alt="...">
+        <img src="{{ asset('storage/' . $book->image ) }}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Title : {{ $book->title }}</h5>
           <h5>Author : {{ $book->author }}</h5>

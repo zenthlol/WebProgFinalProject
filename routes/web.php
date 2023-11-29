@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PasswordController;
 // ini import2 kek java, kalo beda folder baru import
 
 /*
@@ -79,6 +81,14 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 // register
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('store');
+
+// profile
+Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth')->name('Profile');
+Route::post('/profile', [ProfileController::class, 'update']);
+
+// change password
+Route::get('/password', [PasswordController::class, 'index'])->middleware('auth')->name('Password');
+Route::post('/password', [PasswordController::class, 'update']);
 
 //Kalo Mau buat Cart
 // Route::get('/cart', [CartController::class, 'index'])->middleware('auth')->name('Cart');
