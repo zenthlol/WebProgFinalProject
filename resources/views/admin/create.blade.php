@@ -58,7 +58,9 @@
 
                     <div class="mb-3">
                         <label for="image" class="form-label">Upload Book Cover</label>
-                        <input class="form-control" type="file" id="image" name="image">
+                        <img class="img-preview img-fluid mb-3 col-sm-5">
+                        <input class="form-control @error('image')is-invalid
+                        @enderror" type="file" id="image" name="image" onchange=previewImage()>
                         @error('image')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
@@ -103,4 +105,7 @@
 
         </div>
     </div>
+
+
+    <script src="{{ asset('js/imagePreview.js') }}"></script>
 @endsection

@@ -41,6 +41,7 @@
                   <td>{{$book->year}}</td>
                   <td>{{$book->synopsis}}</td>
                   <td>{{asset($book->image)}}</td>
+                  {{-- <td><img src="{{ asset('storage/' . $book->image ) }}" class="card-img-top" alt="..."></td> --}}
                   <td>{{$book->publisher_id}}</td>
                   <td>
                     {{-- EDIT --}}
