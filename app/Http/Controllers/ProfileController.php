@@ -21,6 +21,10 @@ class ProfileController extends Controller
             'name'=>'required|string|min:5|max:100',
         ]);
 
+        $validatedData = $request->validate([
+            'name'=>'required|string|min:5|max:100',
+        ]);
+
         if(Hash::check($request->password, $user->password)) {
             $user->update($validatedData);
 
