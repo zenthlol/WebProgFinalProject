@@ -201,7 +201,7 @@ class BookController extends Controller
         $rules = [
             'title'=>'required|string|min:5|max:100',
             'author'=>'required|string|min:5|max:100',
-            'year'=>'required|integer|min:1990|max:2023',
+            'year'=>'required|integer|min:1945|max:2023',
             'synopsis'=>'required|string|min:5|max:200',
             'image'=>'image|file|max:5120',
             'publisher_id' => 'required|exists:publishers,id'
