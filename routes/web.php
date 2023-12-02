@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\ContactController;
 // ini import2 kek java, kalo beda folder baru import
 
 /*
@@ -36,6 +37,7 @@ Route::get('/category/{id}', [BookController::class, 'categoryById'])->name('cat
 Route::get('/publisher', [BookController::class, 'publisher'])->name('publisher');
 
 Route::get('/contact', [BookController::class, 'contact'])->name('contact');
+Route::post('/message', [ContactController::class, 'sendMail'])->name('contact.message');
 
 //Route::[httpMethod]('url',[Controller::class, 'namaFunctionDiController']);
 // tyang ->name(...) itu buat alias, ntar gampang manggil route ini di file php viewnya
