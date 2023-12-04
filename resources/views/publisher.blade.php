@@ -7,7 +7,7 @@
     <div class="m-5 d-flex-column justify-content-center">
         @foreach ($publishers as $publisher)
             {{-- looping books jadi satu per satu dari banyak books di database --}}
-            <h1>Pubisher:</h1>
+            <h1>Publisher:</h1>
             <div class="card m-3" style="width: 18rem;">
                 <img src="{{ asset('storage/' . $publisher->image) }}" class="card-img-top" alt="...">
                 <div class="card-body">

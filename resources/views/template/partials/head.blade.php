@@ -8,5 +8,11 @@
     {{-- bootstrap icon below--}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <title>Inkwell and Quill BookStore | {{$title}}</title>
+
+    <style>
+        *{
+            font-family: Poppins;
+        }
+    </style>
     @yield('head')
 </head>

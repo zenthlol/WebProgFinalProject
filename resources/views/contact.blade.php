@@ -6,7 +6,7 @@
 
 @section('body')
 
-    <section style='padding:50px'>
+    <section style='padding:50px; height: 100vh'>
         <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
