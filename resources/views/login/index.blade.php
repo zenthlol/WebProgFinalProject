@@ -3,10 +3,10 @@
 <body>
     <div class="row align-items-center justify-content-center h-100">
         {{-- <div style="margin-left: 30%; margin-top:10%" class="col-md-4 border"> --}}
-        <div class=" col-md-4 border h-50 w-50 d-flex flex-column justify-content-center">
+        <div class=" col-md-4 border border-success h-50 w-50 d-flex flex-column justify-content-center">
             <main class="form-signin d-flex flex-column justify-content-center mx-auto gap-5 w-75">
 
-                <h1 class="h3 fw-normal text-center">Please login</h1>
+                <h1 class="h3 fw-normal text-center">Please Login</h1>
 
 
                 {{-- Kalo user berhasil regist --}}
@@ -31,7 +31,7 @@
                     @csrf
                     <div class="form-floating">
                         <input type="email" name="email"
-                            class="form-control border-success shadow-none
+                            class="form-control border-primary shadow-none
                             @error('email')
                               is-invalid
                             @enderror"
@@ -46,14 +46,14 @@
                         @enderror
                     </div>
                     <div class="form-floating">
-                        <input type="password" name="password" class="form-control border-success shadow-none"
+                        <input type="password" name="password" class="form-control border-primary shadow-none"
                             id="floatingPassword" placeholder="Password" required>
                         <label for="floatingPassword">Password</label>
                     </div>
                     <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
                 </form>
 
-                <small class="d-block text-center">Not Registered? <a href="/register">Register Now!</a></small>
+                <small class="fs-5 d-block text-center">Not Registered? <a href="/register">Register Now!</a></small>
             </main>
         </div>
     </div>
