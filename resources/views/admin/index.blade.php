@@ -6,10 +6,10 @@
 @section('body')
 
 
-<div class="container">
+<div class="container d-flex justify-content-center border">
     <div class="col-md-8 bg-light manage-wrapper">
-        <h3 >Admin Management Book Page</h1>
-        <p>Manage your books, tidy them up!</p>
+        <h3 class="m-3 text-center">Admin Management Book Page</h1>
+        <p class="m-3 text-center">Manage your books, tidy them up!</p>
         <hr>
         <a href="{{ url('admin/create') }}" class="btn btn-dark btn-sm mb-2">Add Books</a>
         <a href="{{ url('bookCategory/assignCategory') }}" class="btn btn-secondary btn-sm mb-2" style="margin-left:10px">Assign Category</a>
@@ -29,6 +29,7 @@
                 <th>Synopsis</th>
                 <th>Image</th>
                 <th>Publisher-ID</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -41,6 +42,7 @@
                   <td>{{$book->year}}</td>
                   <td>{{$book->synopsis}}</td>
                   <td>{{asset($book->image)}}</td>
+                  {{-- <td><img src="{{ asset('storage/' . $book->image ) }}" class="card-img-top" alt="..."></td> --}}
                   <td>{{$book->publisher_id}}</td>
                   <td>
                     {{-- EDIT --}}

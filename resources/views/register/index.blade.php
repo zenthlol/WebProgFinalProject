@@ -1,8 +1,8 @@
 @include('template.partials.head')
 
 <body>
-    <div class="row justifiy-content-center">
-        <div class="col-md-5">
+    <div class="row justifiy-content-center" style="height: 100vh">
+        <div style="margin-left: 30%; margin-top:10%" class="col-md-5">
             <main class="form-signin">
                 <h1 class="h3 mb-3 fw-normal text-center">Registration Form</h1>
                 <form action="/register" method="POST">

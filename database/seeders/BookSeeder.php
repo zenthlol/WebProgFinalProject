@@ -20,14 +20,14 @@ class BookSeeder extends Seeder
                 'author' => 'Zenitsu Agatsuma',
                 'year' => '2003',
                 'synopsis' => 'book about a fairy of tale that died',
-                'image' => 'asset/harry-potter.jpeg',
+                'image' => 'images/cover-images/harry-potter.jpeg',
                 'publisher_id' => '1'
             ],
             [
                 'title' => 'Oggy n Cockdrcok',
                 'author' => 'Soggy dr',
                 'year' => '2001',
-                'synopsis' => 'asset/harry-potter.jpeg',
+                'synopsis' => 'Oggy',
                 'image' => 'testimg2',
                 'publisher_id' => '2',
             ]

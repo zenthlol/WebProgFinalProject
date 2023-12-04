@@ -7,9 +7,9 @@
     <div class="m-5 d-flex-column justify-content-center">
         @foreach ($publishers as $publisher)
             {{-- looping books jadi satu per satu dari banyak books di database --}}
-            <h1>Pubisher:</h1>
+            <h1>Publisher:</h1>
             <div class="card m-3" style="width: 18rem;">
-                <img src="{{ asset($publisher->image) }}" class="card-img-top" alt="...">
+                <img src="{{ asset('storage/' . $publisher->image) }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Name : {{ $publisher->name }}</h5>
                     <h5 class="card-title">Address : {{ $publisher->address }}</h5>
@@ -24,7 +24,7 @@
                 @foreach ($publisher->publisherToBook as $item)
                     {{-- ini publisherToBook dari function di model publisher --}}
                     <div class="card m-3 " style="width: 18rem;">
-                        <img src="{{ asset($item->image) }}" class="card-img-top" alt="...">
+                        <img src="{{ asset('storage/' . $item->image) }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Book Title = {{ $item->title }}</h5>
                             <p class="card-text">Written by</p>

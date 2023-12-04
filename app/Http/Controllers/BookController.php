@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\BookCategory;
@@ -105,28 +106,35 @@ class BookController extends Controller
 
     //function untuk CREATE BOOK (store book ke database)
     public function store(Request $request){
-        $request->validate([
+
+        $validatedData = $request->validate([
             //validasi BOOK
             'title'=>'required|string|min:5|max:100',
             'author'=>'required|string|min:5|max:100',
             'year'=>'required|integer|min:1990|max:2023',
             'synopsis'=>'required|string|min:5|max:200',
-            'image'=>'required|string|min:5|max:100',
+            'image'=>'image|file|max:5120',
+
             'publisher_id' => 'required|exists:publishers,id',
             // validasi CATEGORY
         ]);
 
-        // INSERT BOOKS
-        Book::create([
-            'title'=>$request->title,
-            'author'=>$request->author,
-            'year'=>$request->year,
-            'synopsis'=>$request->synopsis,
-            'image'=>$request->image,
-            'publisher_id' => $request->publisher_id
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('images\cover-images');
+        }
 
-            // 'publisher_id' => $this->faker->numberBetween(1,5)
-        ]);
+        // INSERT BOOKS
+        // Book::create([
+        //     'title'=>$request->title,
+        //     'author'=>$request->author,
+        //     'year'=>$request->year,
+        //     'synopsis'=>$request->synopsis,
+        //     'image'=>$request->image,
+        //     'publisher_id' => $request->publisher_id
+
+        //     // 'publisher_id' => $this->faker->numberBetween(1,5)
+        // ]);
+        Book::create($validatedData);
 
 
 
@@ -176,14 +184,12 @@ class BookController extends Controller
             'book_id'=>$request->book_id,
             'category_id'=>$request->category_id,
         ]);
-
-
         return redirect('bookCategory/index')->with('status_sukses', 'Book Category has been successfully added!');
     }
 
 
     //function untuk UPDATE/EDIT BOOK
-    //ini ketika klik dati hlmn index, mau cari buku yg mana yg bakal di update, trs di alihin ke halaman edit, dan passing id dan data buku ke halaman tsb
+    //ini ketika klik dari hlmn index, mau cari buku yg mana yg bakal di update, trs di alihin ke halaman edit, dan passing id dan data buku ke halaman tsb
     public function edit($id){
         $book = Book::findOrFail($id);
         $title = "Admin Page";
@@ -192,24 +198,36 @@ class BookController extends Controller
     }
 
     public function update(Request $request, $id){
-        $request->validate([
+        $rules = [
             'title'=>'required|string|min:5|max:100',
             'author'=>'required|string|min:5|max:100',
-            'year'=>'required|integer|min:1990|max:2023',
+            'year'=>'required|integer|min:1945|max:2023',
             'synopsis'=>'required|string|min:5|max:200',
-            'image'=>'required|string|min:5|max:100',
+            'image'=>'image|file|max:5120',
             'publisher_id' => 'required|exists:publishers,id'
-        ]);
+        ];
+
+        $validatedData = $request->validate($rules);
+
+
+        if($request->file('image')){
+            if($request->oldImage){
+                // buat delete di storage
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('images\cover-images');
+        }
 
         $book=Book::findOrFail($id);
-        $book->update([
-            'title' => $request -> title,
-            'author' => $request -> author,
-            'year' => $request -> year,
-            'synopsis' => $request -> synopsis,
-            'image' => $request -> image,
-            'publisher_id' => $request -> publisher_id,
-        ]);
+        // $book->update([
+        //     'title' => $request -> title,
+        //     'author' => $request -> author,
+        //     'year' => $request -> year,
+        //     'synopsis' => $request -> synopsis,
+        //     'image' => $request -> image,
+        //     'publisher_id' => $request -> publisher_id,
+        // ]);
+        $book->update($validatedData);
 
 
         return redirect('admin/index')->with('status_sukses', 'Book has been Edited!');
@@ -220,7 +238,12 @@ class BookController extends Controller
     // function DELETE
     public function destroy($id){
         $book = Book::findOrFail($id);
+        // buat delete di storage
+        if($book->image){
+            Storage::delete($book->image);
+        }
         $book->delete();
+
         return redirect('/admin/index')->with('status_sukses', 'Book has been Deleted!');
     }
 }

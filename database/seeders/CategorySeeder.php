@@ -19,11 +19,17 @@ class CategorySeeder extends Seeder
                 'name' => 'Romance'
             ],
             [
+                'name' => 'Fantasy'
+            ],
+            [
                 'name' => 'Action'
             ],
             [
                 'name' => 'Adventure'
-            ]
+            ],
+            [
+                'name' => 'Mystery'
+            ],
             ]);
     }
 }
