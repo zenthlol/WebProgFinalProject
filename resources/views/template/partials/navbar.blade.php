@@ -1,10 +1,19 @@
-<div class="d-flex justify-content-center bg-warning">
+<style>
+        .navbar.center .navbar-inner {
+        text-align: center;
+    }
+
+    .navbar.center .navbar-inner .nav {
+        display:inline-block;
+        float: none;
+    }
+</style>
+<div style="background-color: lightblue" class="d-flex justify-content-center">
     <h1>Inkwell and Quill BookStore</h1>
 </div>
 {{-- <div class="d-flex justify-content-center sticky-top"> --}}
-    <nav class="navbar navbar-expand-lg bg-body-tertiary d-flex justify-content-center sticky-top">
-        <div class="container-fluid">
-
+    <nav style="box-shadow: 0 2px 4px 0 rgba(0,0,0,.2); " class="navbar navbar-expand-lg bg-body-tertiary d-flex justify-content-center sticky-top " >
+        <div class="container-fluid d-flex justify-content-center">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>

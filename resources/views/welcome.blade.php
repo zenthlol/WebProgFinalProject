@@ -5,7 +5,7 @@
 
 @section('body')
     <h1>Book List</h1>
-    <div class="m-5 d-flex flex-row justify-content-center">
+    <div class="m-5 d-flex flex-row justify-content-center ">
         @foreach ($bookAll as $book)
             {{-- looping books jadi satu per satu dari banyak books di database --}}
 
