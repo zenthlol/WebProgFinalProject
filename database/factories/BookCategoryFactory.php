@@ -18,7 +18,7 @@ class BookCategoryFactory extends Factory
     {
         return [
             'book_id' => $this->faker->numberBetween(1,5),
-            'category_id' => $this->faker->numberBetween(1,3)
+            'category_id' => $this->faker->numberBetween(1,5)
         ];
     }
 }
