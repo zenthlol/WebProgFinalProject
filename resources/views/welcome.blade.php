@@ -31,8 +31,5 @@
     </div>
 
     {{-- ini authentication hanya user logged in yg bisa akses halaman admin. --}}
-    @auth
-        <button type="button" class="btn btn-primary" style="margin-left: 10px; margin-bottom:20px"><a
-                href="{{ url('admin/index') }}" style="color:white">Become Admin</a></button>
-    @endauth
+
 @endsection

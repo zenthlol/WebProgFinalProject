@@ -42,11 +42,18 @@
                     </li>
                 </ul>
               </li>
+
+              <li class="nav-item">
+                @auth
+                    <a class="nav-link"
+                    href="{{ url('admin/index') }}" style="color:black">Admin Management Page</a>
+                @endauth
+              </li>
             </ul>
         </div>
 
         {{-- DIV 2 ================= --}}
-        <div style="margin-left: 27%" class="" id="navbarSupportedContent">
+        <div style="margin-left: 18%" class="" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 mb-lg-0 d-flex justify-content-center">
               {{-- SEARCH--}}
             @if ($active === "Home")
@@ -90,6 +97,9 @@
                     @endauth
             </ul>
         </div>
+
+
+
 
     </nav>
 
