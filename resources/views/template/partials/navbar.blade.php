@@ -20,12 +20,12 @@
 
 {{-- box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);  --}}
 <nav style="" class="shadow-sm navbar navbar-expand-lg bg-body-tertiary sticky-top d-flex">
-  
+
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
         <span class="navbar-toggler-icon"></span>
     </button>
-    
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       {{-- Ini Nav Container --}}
       <div class="d-flex justify-content-between w-100">
@@ -79,10 +79,10 @@
             </li>
           </ul>
         </div>
-        
+
         {{-- Ini Nav Group 2 -> search bar, login --}}
         <div class="group2 d-flex">
-          
+
           {{-- Search Bar --}}
           <div style="" class="" id="">
             <ul class="navbar-nav mb-2 mb-lg-0 ">
@@ -95,7 +95,7 @@
                 @endif
             </ul>
           </div>
-          
+
           {{-- Profile --}}
           <div style="" class="" id="">
             <ul class="navbar-nav mb-2 mb-lg-0 ">
@@ -128,9 +128,9 @@
               @endauth
             </ul>
           </div>
-            
+
         </div>
-          
+
       </div>
     </div>
   </div>

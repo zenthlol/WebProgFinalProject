@@ -16,17 +16,17 @@ class PublisherSeeder extends Seeder
     {
         \DB::table('publishers')->insert([
             [
-                'name' => 'Kenneth',
+                'name' => 'Penerbit Erlangga',
                 'address' => 'TVM',
                 'phone' => '085959536962',
-                'email' => 'kenneth.tjiang@gmail.com',
+                'email' => 'erlangga@gmail.com',
                 'image' => 'testimg1'
             ],
             [
-                'name' => 'Jordan',
+                'name' => 'Gramedia Pustaka Utama',
                 'address' => 'TVM2',
                 'phone' => '08123231',
-                'email' => 'jordan.tjiang@gmail.com',
+                'email' => 'gramediag@gmail.com',
                 'image' => 'testimg2'
             ]
             ]);

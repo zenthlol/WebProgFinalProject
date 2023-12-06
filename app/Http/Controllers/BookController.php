@@ -158,7 +158,7 @@ class BookController extends Controller
         $categories = Category::all();
         $title = "Admin Page";
         $active = "";
-        return view('bookCategory/index', compact('bookCats'), compact('books'), compact('categories', 'title', 'active'));
+        return view('bookCategory/index', compact('bookCats','books', 'categories', 'title', 'active'));
     }
 
     //function untuk halaman bikin bookcat

@@ -5,8 +5,7 @@
 
 @section('body')
 
-
-<div class="container">
+<div class="container m-5 d-flex justify-content-center">
     <div class="col-md-8 bg-light manage-wrapper">
         <h3 >Admin Management Book Categories Page</h1>
         <p>--</p>
@@ -16,6 +15,7 @@
         @if(session('status_sukses'))
           <div class="alert alert-success" role="alert">
             {{ session('status_sukses') }}
+          </div>
         @endif
 
         <table class="table">
@@ -56,30 +56,6 @@
             </tbody>
           </table>
 
-          {{-- TABEL NAMA ---------------- --}}
-          {{-- <table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Book Name</th>
-                <th>Category Name</th>
-              </tr>
-            </thead>
-
-            <tbody>
-
-              @foreach($books as $book)
-                <tr>
-                <td>{{$loop->iteration}}</td>
-                <td>{{$book->title}}</td>
-
-
-
-
-                </tr>
-              @endforeach
-            </tbody>
-          </table> --}}
     </div>
 </div>
 @endsection
