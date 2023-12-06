@@ -192,9 +192,10 @@ class BookController extends Controller
     //ini ketika klik dari hlmn index, mau cari buku yg mana yg bakal di update, trs di alihin ke halaman edit, dan passing id dan data buku ke halaman tsb
     public function edit($id){
         $book = Book::findOrFail($id);
+        $publishers = Publisher::all();
         $title = "Admin Page";
         $active = "";
-        return view('admin/edit', compact('book', 'title', 'active'));
+        return view('admin/edit', compact('book', 'publishers', 'title', 'active'));
     }
 
     public function update(Request $request, $id){

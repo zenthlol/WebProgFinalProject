@@ -73,9 +73,14 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label" style="margin-left: 8px">Publisher ID</label>
-                        <input type="number" class="form-control" placeholder="Input Publisher ID" name="publisher_id"
-                            value="{{ $book->publisher_id }}">
+                        <label class="form-label">Publisher</label>
+                        <select class="form-select" aria-label="Default select example" placeholder="Input Publisher ID"
+                            name="publisher_id" value="{{ old('publisher') }}">
+                            <option selected>Select Publisher</option>
+                            @foreach ($publishers as $publisher)
+                                <option value="{{ $publisher->id }}">{{ $publisher->name }}</option>
+                            @endforeach
+                        </select>
                         @error('publisher_id')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
