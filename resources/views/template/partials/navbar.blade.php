@@ -6,12 +6,21 @@
         background-color: #f8f9fa;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+
+    .title{
+        background-color: lightblue;
+        padding: 12px 0px;
+    }
+
 </style>
-<div style="background-color: lightblue" class="d-flex justify-content-center">
-    <h1>Inkwell and Quill BookStore</h1>
+
+<div class="title d-flex justify-content-center">
+    <h1 class="fw-bold">Inkwell and Quill BookStore</h1>
 </div>
 
-<nav style="box-shadow: 0 2px 4px 0 rgba(0,0,0,.2); " class="navbar navbar-expand-lg bg-body-tertiary sticky-top d-flex">
+{{-- box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);  --}}
+<nav style="" class="shadow-sm navbar navbar-expand-lg bg-body-tertiary sticky-top d-flex">
+  
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
         <span class="navbar-toggler-icon"></span>
