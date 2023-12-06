@@ -15,6 +15,10 @@
         *{
             font-family: 'Montserrat', sans-serif;
         }
+
+        .profile-height {
+            height: 80vh;
+        }
     </style>
     @yield('head')
 </head>
