@@ -10,8 +10,10 @@
     <title>Inkwell and Quill BookStore | {{$title}}</title>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+        
         *{
-            font-family: Poppins;
+            font-family: 'Montserrat', sans-serif;
         }
     </style>
     @yield('head')

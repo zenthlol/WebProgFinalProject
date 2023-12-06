@@ -2,7 +2,6 @@
 
 <body>
     <div class="row align-items-center justify-content-center h-100">
-        {{-- <div style="margin-left: 30%; margin-top:10%" class="col-md-4 border"> --}}
         <div class=" col-md-4 border border-success h-50 w-50 d-flex flex-column justify-content-center">
             <main class="form-signin d-flex flex-column justify-content-center mx-auto gap-5 w-75">
 

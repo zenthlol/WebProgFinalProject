@@ -4,7 +4,7 @@
 @endsection
 
 @section('body')
-    <h1 class="m-3 d-flex justify-content-center ">Books</h1>
+    <h1 class="m-3 fw-bold d-flex justify-content-center ">Books</h1>
     <div class="" style="height: 100vh">
         <div style="flex-direction: row; flex-wrap: wrap; justify-content: space-around" class="m-3 d-flex justify-content-center">
             @foreach ($bookAll as $book)
