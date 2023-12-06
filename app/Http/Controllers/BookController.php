@@ -63,7 +63,7 @@ class BookController extends Controller
 
 
     public function categoryById($id){
-        $categories = Category::all();
+        $categories = Category::find($id);
         $category = Category::where('id','=',$id)->pluck('name')->first();
         $title = $category;
         $active = 'Category';
