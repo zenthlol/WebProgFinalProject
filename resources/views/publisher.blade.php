@@ -37,7 +37,7 @@
 
                                 {{-- Buku-buku --}}
                                 @foreach ($publisher->publisherToBook as $item)
-                                    <div class="card m-3 " style="width: 18rem;">
+                                    <div class="card m-3 " style="width: 12rem;">
                                         <img src="{{ asset('storage/' . $item->image) }}" class="card-img-top">
                                         <div class="card-body">
                                             <h5 class="card-title">Title : {{ $item->title }}</h5>

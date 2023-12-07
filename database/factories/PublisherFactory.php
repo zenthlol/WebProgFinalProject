@@ -17,7 +17,7 @@ class PublisherFactory extends Factory
     public function definition()
     {
         return [
-            'name'=> $this->faker->text(7),
+            'name'=> $this->faker->text(10),
             'address'=> $this->faker->text(10),
             'phone' => $this->faker->phoneNumber(),
             'email' => $this->faker->email(),

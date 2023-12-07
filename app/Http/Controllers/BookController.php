@@ -247,6 +247,9 @@ class BookController extends Controller
 
         return redirect('/admin/index')->with('status_sukses', 'Book has been Deleted!');
     }
+
+
+
 }
 
 

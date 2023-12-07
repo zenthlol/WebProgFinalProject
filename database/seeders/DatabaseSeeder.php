@@ -15,6 +15,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\Publisher::factory(5)->create();
+        $this->call([
+            PublisherSeeder::class,
+        ]);
         // \App\Models\Category::factory(5)->create();
         \App\Models\Book::factory(5)->create();
 
@@ -27,7 +30,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
-            PublisherSeeder::class,
             BookSeeder::class,
             CategorySeeder::class
         ]);

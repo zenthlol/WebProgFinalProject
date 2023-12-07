@@ -6,12 +6,12 @@
 @section('body')
     <h1 class="m-3 fw-bold d-flex justify-content-center ">Books</h1>
     <div class="" style="height: 100vh">
-        <div style="flex-direction: row; flex-wrap: wrap; justify-content: space-around" class="m-3 d-flex justify-content-center">
+        <div style="flex-direction: row; flex-wrap: wrap; justify-content: space-around" class="m-3 d-flex justify-content-center ">
             @foreach ($bookAll as $book)
                 {{-- looping books jadi satu per satu dari banyak books di database --}}
 
-                <div class="card m-3" style="width: 13rem;">
-                    <img style="padding-left: 10px; padding-right: 10px; padding-top: 5px" src="{{ asset('storage/' . $book->image)}}" class="card-img-top" alt="...">
+                <div class="card m-3" style="width: 13rem; height: auto">
+                    <img style="padding-left: 10px; padding-right: 10px; padding-top: 5px;" src="{{ asset('storage/' . $book->image)}}" class="card-img-top" alt="...">
                     <div  class="card-body">
                         <h5 class="card-title">{{ $book->title }}</h5>
                         <div style="bottom: 0">

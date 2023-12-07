@@ -33,6 +33,12 @@
         <div class="group1" id="">
           <ul class="navbar-nav mb-2 mb-lg-0 d-flex justify-content-center">
 
+            {{-- Logo --}}
+            <li class="nav-item me-3">
+                <img style="width: 40px; height: auto;" src="{{ asset("asset/favicon.png") }}" alt="">
+            </li>
+
+
             {{-- Home --}}
             <li class="nav-item">
                 <a class="nav-link {{ $active === 'Home' ? 'active' : '' }}" aria-current="page"

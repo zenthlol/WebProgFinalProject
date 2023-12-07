@@ -58,6 +58,7 @@
             </main>
         </div>
     </div>
+
 </body>
 
 @include('template.partials.footer')
