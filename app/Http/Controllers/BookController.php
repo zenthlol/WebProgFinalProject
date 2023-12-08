@@ -12,8 +12,7 @@ use App\Models\Publisher;
 
 class BookController extends Controller
 {
-    public function welcome(){
-        //CARA 1
+    //CARA 1
 
         // $bookAll = Book::all(); // ini semua data buku dimskin variable $books
         // $categories = Category::all();
@@ -30,6 +29,7 @@ class BookController extends Controller
         // ini 'welcome' nama page welcome.blade.php
         // compact('books') itu passing dari controller/variable $books ke view welcomenya
 
+    public function welcome(){
         //CARA 2: PAKE QUERY
         $title = $active = 'Home';
 
@@ -52,15 +52,14 @@ class BookController extends Controller
         return view('admin/index');
     }
 
-    public function bookById($ids){ // function buat return id ke route, tampilin halaman details berdasarkan id buku
+    // function buat return id ke route, tampilin halaman details berdasarkan id buku
+    public function bookById($ids){
         $book = Book::find($ids);
         $categories = Category::all();
         $title = $book->title;
         $active = 'Home';
         return view('bookDetail', compact('book', 'categories', 'title', 'active'));
     }
-
-
 
     public function categoryById($id){
         $categories = Category::find($id);

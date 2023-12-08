@@ -24,14 +24,14 @@ use App\Http\Controllers\ContactController;
 //     return view('welcome');
 // });
 
+// Route::get('/', [BookController::class, 'becomeAdmin'])->name('becomeAdmin');
+
 
 Route::get('/welcome', [BookController::class, 'welcome'])->name('welcome');
 
-// Route::get('/', [BookController::class, 'becomeAdmin'])->name('becomeAdmin');
 Route::redirect('/', '/welcome');
 
 Route::get('/book/{idyangdidapat}', [BookController::class, 'bookById'])->name('bookById');//buat halaman details book
-
 Route::get('/category/{id}', [BookController::class, 'categoryById'])->name('categoryById');
 
 Route::get('/publisher', [BookController::class, 'publisher'])->name('publisher');
@@ -47,6 +47,8 @@ Route::post('/message', [ContactController::class, 'sendMail'])->name('contact.m
 
 //ADMIN
 Route::get('/admin/index', [BookController::class, 'index'])->middleware('auth')->name('index');
+
+
 
 // ini buat halaman admin CREATE
 Route::get('/admin/create', [BookController::class, 'adminCreate'])->middleware('auth')->name('adminCreate');
