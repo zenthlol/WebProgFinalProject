@@ -90,7 +90,7 @@ class BookController extends Controller
         $books = Book::All();
         $publisher = Publisher::all();
         $title = "Admin Page";
-        $active = "";
+        $active = "Admin";
         return view('admin/index', compact('books', 'title', 'active'), compact('publisher'));
     }
 
@@ -99,7 +99,7 @@ class BookController extends Controller
     public function adminCreate(){
         $publishers = Publisher::all();
         $title = "Admin Page";
-        $active = "";
+        $active = "Admin";
         return view('admin/create', compact('publishers', 'title', 'active'));
     }
 
@@ -156,7 +156,7 @@ class BookController extends Controller
         $books = Book::all();
         $categories = Category::all();
         $title = "Admin Page";
-        $active = "";
+        $active = "Admin";
         return view('bookCategory/index', compact('bookCats','books', 'categories', 'title', 'active'));
     }
 
@@ -165,7 +165,7 @@ class BookController extends Controller
         $books = Book::all();
         $categories = Category::all();
         $title = "Admin Page";
-        $active = "";
+        $active = "Admin";
         return view('bookCategory/assignCategory', compact('books'), compact('categories', 'title', 'active'));
     }
 
@@ -193,7 +193,7 @@ class BookController extends Controller
         $book = Book::findOrFail($id);
         $publishers = Publisher::all();
         $title = "Admin Page";
-        $active = "";
+        $active = "Admin";
         return view('admin/edit', compact('book', 'publishers', 'title', 'active'));
     }
 

@@ -80,7 +80,7 @@
             {{-- Admin --}}
             <li class="nav-item">
                 @auth
-                    <a class="nav-link" href="{{ url('admin/index') }}" style="color:black">Admin Management Page</a>
+                    <a class="nav-link {{ $active === 'Admin' ? 'active' : '' }}" href="{{ url('admin/index') }}">Admin Management Page</a>
                 @endauth
             </li>
           </ul>
@@ -114,7 +114,7 @@
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="/profile"><i class="bi bi-person"></i> Profile</a></li>
                   <li><a class="dropdown-item" href="/password"><i class="bi bi-lock"></i> Change Password</a></li>
-                  <li><a class="dropdown-item" href="/cart"><i class="bi bi-cart"></i> My Cart</a></li>
+                  {{-- <li><a class="dropdown-item" href="/cart"><i class="bi bi-cart"></i> My Cart</a></li> --}}
                   <li><hr class="dropdown-divider"></li>
                   <li>
                     <form action="/logout" method="POST">
