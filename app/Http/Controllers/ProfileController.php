@@ -31,11 +31,6 @@ class ProfileController extends Controller
 
             return back()->with('success', 'Update Sucessful');
         }
-
-
-
-
-
         return back()->with('updateError', 'Update failed!');
     }
 }

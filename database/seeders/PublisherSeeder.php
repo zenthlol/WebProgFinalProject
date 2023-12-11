@@ -32,3 +32,4 @@ class PublisherSeeder extends Seeder
             ]);
     }
 }
+

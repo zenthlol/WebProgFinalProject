@@ -59,7 +59,7 @@
 
                                     <!-- Text -->
                                     <p class="mb-0 fs-5">
-                                        Ink And Quill BookStore
+                                        Inkwell And Quill Book Library
                                         <br>
                                         Jl. Menuju Magang no.1
                                     </p>
