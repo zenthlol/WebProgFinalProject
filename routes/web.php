@@ -34,9 +34,11 @@ Route::redirect('/', '/welcome');
 Route::get('/book/{idyangdidapat}', [BookController::class, 'bookById'])->name('bookById');//buat halaman details book
 Route::get('/category/{id}', [BookController::class, 'categoryById'])->name('categoryById');
 
+
 Route::get('/publisher', [BookController::class, 'publisher'])->name('publisher');
 
 Route::get('/contact', [BookController::class, 'contact'])->name('contact');
+
 Route::post('/message', [ContactController::class, 'sendMail'])->name('contact.message');
 
 //Route::[httpMethod]('url',[Controller::class, 'namaFunctionDiController']);
@@ -52,17 +54,13 @@ Route::get('/admin/index', [BookController::class, 'index'])->middleware('auth')
 
 // ini buat halaman admin CREATE
 Route::get('/admin/create', [BookController::class, 'adminCreate'])->middleware('auth')->name('adminCreate');
-
 Route::post('/admin/create', [BookController::class, 'store'])->name('store');
 
 
 
-
-Route::get('/bookCategory/index', [BookController::class, 'bookCategoryIndex'])->middleware('auth')->name('index');
-
 // ini buat halaman admin ASSIGN-CATEGORY
+Route::get('/bookCategory/index', [BookController::class, 'bookCategoryIndex'])->middleware('auth')->name('index');
 Route::get('/bookCategory/assignCategory', [BookController::class, 'bookCategoryCreate'])->middleware('auth')->name('bookCategoryCreate');
-
 Route::post('/bookCategory/assignCategory', [BookController::class, 'bookCategoryStore'])->name('bookCategoryStore');
 
 
@@ -70,11 +68,11 @@ Route::post('/bookCategory/assignCategory', [BookController::class, 'bookCategor
 
 // halaman admin UPDATE
 Route::get('/admin/edit/{id}', [BookController::class, 'edit'])->middleware('auth')->name('edit');
-
 Route::put('/admin/edit/{id}',[BookController::class, 'update'])->name('update');
 
 // halaman admin DELETE
 Route::delete('/admin/destroy/{id}', [BookController::class,'destroy'])->name('destroy');
+
 
 // LOGIN + REGISTER
 // login
@@ -86,7 +84,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('store');
 
-// profile
+// change profile name
 Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth')->name('Profile');
 Route::post('/profile', [ProfileController::class, 'update']);
 

@@ -15,7 +15,7 @@
 </style>
 
 <div class="title d-flex justify-content-center">
-    <h1 class="fw-bold">Inkwell and Quill BookStore</h1>
+    <h1 class="fw-bold">Inkwell and Quill Book Library</h1>
 </div>
 
 {{-- box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);  --}}

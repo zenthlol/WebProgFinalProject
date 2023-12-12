@@ -22,3 +22,4 @@ class BookCategoryFactory extends Factory
         ];
     }
 }
+

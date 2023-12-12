@@ -79,6 +79,9 @@ class BookController extends Controller
         return view('publisher', compact('publishers', 'title', 'active'));
     }
 
+
+
+
     public function contact(){
         $title = $active = 'Contact';
         return view('contact', compact('title', 'active'));
@@ -90,7 +93,7 @@ class BookController extends Controller
         $books = Book::All();
         $publisher = Publisher::all();
         $title = "Admin Page";
-        $active = "Admin";
+        $active = "";
         return view('admin/index', compact('books', 'title', 'active'), compact('publisher'));
     }
 
@@ -99,7 +102,7 @@ class BookController extends Controller
     public function adminCreate(){
         $publishers = Publisher::all();
         $title = "Admin Page";
-        $active = "Admin";
+        $active = "";
         return view('admin/create', compact('publishers', 'title', 'active'));
     }
 
@@ -113,38 +116,15 @@ class BookController extends Controller
             'year'=>'required|integer|min:1990|max:2023',
             'synopsis'=>'required|string|min:5|max:200',
             'image'=>'image|file|max:5120',
-
             'publisher_id' => 'required|exists:publishers,id',
-            // validasi CATEGORY
         ]);
 
         if($request->file('image')){
             $validatedData['image'] = $request->file('image')->store('images\cover-images');
         }
-
-        // INSERT BOOKS
-        // Book::create([
-        //     'title'=>$request->title,
-        //     'author'=>$request->author,
-        //     'year'=>$request->year,
-        //     'synopsis'=>$request->synopsis,
-        //     'image'=>$request->image,
-        //     'publisher_id' => $request->publisher_id
-
-        //     // 'publisher_id' => $this->faker->numberBetween(1,5)
-        // ]);
         Book::create($validatedData);
 
-
-
-        // INSERT CATEGORY RELATIONSHIP
-        // BookCategory::create([
-        //     'book_id' =>$request->book_id,
-        //     'category_id'=>$request->category_id
-        // ]);
-
         return redirect('admin/index')->with('status_sukses', 'Book has been successfully added!');
-
     }
 
 
@@ -156,7 +136,7 @@ class BookController extends Controller
         $books = Book::all();
         $categories = Category::all();
         $title = "Admin Page";
-        $active = "Admin";
+        $active = "";
         return view('bookCategory/index', compact('bookCats','books', 'categories', 'title', 'active'));
     }
 
@@ -165,7 +145,7 @@ class BookController extends Controller
         $books = Book::all();
         $categories = Category::all();
         $title = "Admin Page";
-        $active = "Admin";
+        $active = "";
         return view('bookCategory/assignCategory', compact('books'), compact('categories', 'title', 'active'));
     }
 
@@ -193,7 +173,7 @@ class BookController extends Controller
         $book = Book::findOrFail($id);
         $publishers = Publisher::all();
         $title = "Admin Page";
-        $active = "Admin";
+        $active = "";
         return view('admin/edit', compact('book', 'publishers', 'title', 'active'));
     }
 
@@ -206,9 +186,7 @@ class BookController extends Controller
             'image'=>'image|file|max:5120',
             'publisher_id' => 'required|exists:publishers,id'
         ];
-
         $validatedData = $request->validate($rules);
-
 
         if($request->file('image')){
             if($request->oldImage){
@@ -219,20 +197,9 @@ class BookController extends Controller
         }
 
         $book=Book::findOrFail($id);
-        // $book->update([
-        //     'title' => $request -> title,
-        //     'author' => $request -> author,
-        //     'year' => $request -> year,
-        //     'synopsis' => $request -> synopsis,
-        //     'image' => $request -> image,
-        //     'publisher_id' => $request -> publisher_id,
-        // ]);
         $book->update($validatedData);
 
-
         return redirect('admin/index')->with('status_sukses', 'Book has been Edited!');
-
-
     }
 
     // function DELETE
@@ -246,9 +213,6 @@ class BookController extends Controller
 
         return redirect('/admin/index')->with('status_sukses', 'Book has been Deleted!');
     }
-
-
-
 }
 
 
