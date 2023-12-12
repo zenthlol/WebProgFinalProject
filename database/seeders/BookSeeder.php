@@ -23,14 +23,6 @@ class BookSeeder extends Seeder
                 'image' => 'images/cover-images/harry-potter.jpeg',
                 'publisher_id' => '1'
             ],
-            [
-                'title' => 'Oggy n Cockdrcok',
-                'author' => 'Soggy dr',
-                'year' => '2001',
-                'synopsis' => 'Oggy',
-                'image' => 'testimg2',
-                'publisher_id' => '2',
-            ]
             ]);
     }
 }

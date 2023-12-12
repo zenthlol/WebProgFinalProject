@@ -6,7 +6,7 @@
 @section('body')
 
 
-<div class="container d-flex justify-content-center border">
+<div class="container d-flex justify-content-center border mb-5">
     <div class=" bg-light manage-wrapper">
         <h3 class="m-3 text-center">Admin Management Book Page</h1>
         <p class="m-3 text-center">Manage your books, tidy them up!</p>

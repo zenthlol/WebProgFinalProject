@@ -4,7 +4,7 @@
 @endsection
 
 @section('body')
-    <div class="container d-flex justify-content-center border">
+    <div class="container d-flex justify-content-center border mb-5">
         <div class="col-md-7 bg-light manage-wrapper">
             <h3 class="text-center m-2"><i class="uil uil-edit-alt me-2"></i>Edit Book</h1>
                 <p class="text-center">Edit your book here !</p>
